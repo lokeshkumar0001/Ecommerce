@@ -63,7 +63,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/">
       <Header />
       {isAuthenticated && <UserOptions user={user} />}
       <Routes>

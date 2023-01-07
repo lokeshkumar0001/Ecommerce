@@ -10,7 +10,7 @@ const path = require("path")
 const errorMiddleware = require("./middleware/error");
 
 //config
-dotenv.config({path: "config/config.env"});
+dotenv.config({path: "backend/config/config.env"});
 app.use(cors());
 
 app.use(express.json({ limit: "50mb" }));
