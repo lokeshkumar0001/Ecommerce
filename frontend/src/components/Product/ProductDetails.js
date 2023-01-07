@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./ProductDetails.css";
 import Carousel from "react-material-ui-carousel";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearErrors,
@@ -28,6 +28,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
@@ -36,6 +37,8 @@ const ProductDetails = () => {
   const { success, error: reviewError } = useSelector(
     (state) => state.newReview
   );
+
+  const {isAuthenticated} = useSelector((state)=> state.user )
 
   const options = {
     size: "large",
@@ -61,8 +64,14 @@ const ProductDetails = () => {
   };
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(id, quantity));
-    alert.success("Item added to cart");
+    if(isAuthenticated){
+      dispatch(addItemsToCart(id, quantity));
+      alert.success("Item added to cart");
+    }
+    else {
+      alert.error("Please login to add to cart");
+      navigate("/login")
+    }
   };
 
   const submitReviewToggle = () => {
