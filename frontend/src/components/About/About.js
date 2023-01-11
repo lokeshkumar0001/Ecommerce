@@ -31,13 +31,13 @@ const About = () => {
           <div className="aboutSectionContainer2">
             <Typography component="h2">Social profile</Typography>
             <a
-              href="https://www.youtube.com/channel/UCO7afj9AUo0zV69pqEYhcjw"
+              href="https://www.linkedin.com/in/lokeshkumar0001"
               target="blank"
             >
               <LinkedIn className="youtubeSvgIcon" />
             </a>
 
-            <a href="https://instagram.com/meabhisingh" target="blank">
+            <a href="https://instagram.com/lokeshkumarsingh001" target="blank">
               <Instagram className="instagramSvgIcon" />
             </a>
           </div>
